@@ -1,4 +1,8 @@
 name: Create Azure Resources
+
+permissions:
+  id-token: write
+
 on: 
     push:
         paths: 
