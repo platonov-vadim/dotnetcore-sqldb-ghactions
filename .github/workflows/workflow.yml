@@ -61,6 +61,15 @@ jobs:
           CONN_STR=$(echo $CONN_STR | sed "s/<password>/${{ env.SQLADMIN_PASS }}/g")
           echo "SQL_DB_CONN_STR=$CONN_STR" >> $GITHUB_ENV
 
+      - name: Set Azure Web App Connection String
+        run: |
+          az webapp config connection-string set \
+            --resource-group ${{ env.AZURE_RESOURCEGROUP_NAME }} \
+            --name ${{ env.AZURE_WEBAPP_NAME }} \
+            --slot staging \
+            --settings MyDbConnection="${{ env.SQL_DB_CONN_STR }}" \
+            --connection-string-type SQLAzure
+
       - name: Update Database
         run: |
           dotnet tool install --global dotnet-ef --version 3.1.0
