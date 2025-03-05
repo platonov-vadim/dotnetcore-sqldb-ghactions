@@ -15,7 +15,7 @@ env:
   AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
   DOTNET_VERSION: '3.1'           # set this to the dot net version to use
   AZURE_RESOURCEGROUP_NAME: pro690-midterm  # set this to your preferred resource group name
-  SQLSERVER_NAME: demo-webappsql-gh-actions-srv.database.windows.net                         # set this to your preferred sql server name
+  SQLSERVER_NAME: demo-webappsql-gh-actions-srv                       # set this to your preferred sql server name
   DATABASE_NAME: demo-webappsql-gh-actions-db                   # set this to your preferred sql database name
   SQLADMIN_LOGIN: ${{ secrets.SQLADMIN_LOGIN  }}                # Create a secret in your Github repo for the SQL Admin login name you want to use
   SQLADMIN_PASS: ${{ secrets.SQLADMIN_PASS  }}                 # Create a secret in your Github repo for the SQL Admin password you want to use
