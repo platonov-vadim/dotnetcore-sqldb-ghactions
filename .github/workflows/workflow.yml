@@ -48,9 +48,6 @@ jobs:
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE  }} # Define secret variable in repository settings as per action documentation
           package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp'
           slot-name: staging
-          
-      - name: Install dotnet-ef
-        run: dotnet tool install --global dotnet-ef --version 3.1.0
 
       - name: Login for az cli commands 
         uses: azure/login@v2
@@ -66,7 +63,7 @@ jobs:
 
       - name: Update Database
         run: |
-          dotnet tool install --global dotnet-ef
+          dotnet tool install --global dotnet-ef --version 3.1.0
           dotnet ef database update
         env:
           ConnectionStrings__MyDbConnection: ${{ env.SQL_DB_CONN_STR }}
